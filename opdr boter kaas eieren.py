@@ -7,4 +7,4 @@ class MyRandomAgent(EvaluationAgent):
                     
             
 stupid = MyRandomAgent()
-start(player_o=stupid)
+start(player_o=stupid,player_x=stupid)

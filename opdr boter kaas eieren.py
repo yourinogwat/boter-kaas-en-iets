@@ -18,8 +18,10 @@ class A_God(EvaluationAgent):
             getal = getal + 2
         if board[4] == my_symbol:
             getal = getal + 6
+        if can_win(board, my_symbol):
+            getal = getal + 10
         if is_winner(board, opponent_symbol):
-            getal = getal + 1000
+            getal = getal - 10000
         if is_winner(board, my_symbol):
             getal = getal + 11000
         return getal

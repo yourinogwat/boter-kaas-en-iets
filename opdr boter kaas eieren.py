@@ -1,5 +1,5 @@
 import random
-from bke import start, EvaluationAgent
+from bke import start, EvaluationAgent, can_win, is_winner
 
 class MyRandomAgent(EvaluationAgent):
                     def evaluate(self, board, my_symbol, opponent_symbol):
@@ -8,8 +8,20 @@ class MyRandomAgent(EvaluationAgent):
 class A_God(EvaluationAgent):
     def evaluate(self, board, my_symbol, opponent_symbol):
         getal = 1
+        if board[0] == my_symbol:
+            getal = getal + 2
+        if board[2] == my_symbol:
+            getal = getal + 2
+        if board[6] == my_symbol:
+            getal = getal + 2
+        if board[8] == my_symbol:
+            getal = getal + 2
         if board[4] == my_symbol:
             getal = getal + 6
+        if is_winner(board, opponent_symbol):
+            getal = getal + 1000
+        if is_winner(board, my_symbol):
+            getal = getal + 11000
         return getal
     
 God = A_God()    

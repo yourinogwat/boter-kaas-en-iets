@@ -1,4 +1,10 @@
-from bke import start
+import random
+from bke import start, EvaluationAgent
 
-
-start()
+class MyRandomAgent(EvaluationAgent):
+                    def evaluate(self, board, my_symbol, opponent_symbol):
+                        return random.randint(1,500)
+                    
+            
+stupid = MyRandomAgent()
+start(player_o=stupid)
